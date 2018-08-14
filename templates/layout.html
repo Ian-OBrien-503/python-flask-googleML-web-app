@@ -1,22 +1,8 @@
 <!doctype html>
 <html>
-  <head>
-    <title>IAN O MOVIE REVIEWS</title>
-  </head>
-  <h1>format...</h1>
-  <h1>movie title</h1>
-  <h1>year released</h1>
-  <h1>x out of x stars</h1>
-  <h1>reviewer name</h1>
-  <h1>comments of reviewer</h1>
-  <body>
-    <h1>REVIEWS...
-    {% for obj in model.movie_dict%}
-        <dt>***MOVIE:{{obj}}***</dt>
-        {% for obj2 in model.movie_dict[obj] %}
-            <dt>{{obj2}}</dt>
-        {%endfor%}
-    {% endfor %}
-  </body>
+<title>Ian's Movie Reviews</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+    {% block content %}{% endblock %}
+</div>
 </html>
-             
