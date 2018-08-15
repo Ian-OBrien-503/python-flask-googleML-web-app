@@ -2,10 +2,12 @@
 flask app english to french translator using GCP_ML_API 
 """
 from flask import Flask, render_template, redirect, request, url_for, jsonify
-from my_model import model
+from snippets import translate_text
+from model import model
 
 app = Flask(__name__)       #our Flask app
-model = model()             #instantiate dictionary
+model = model()             #instantiating model class \
+target1 = 'fr'              #for specifying translation to french
 
 #home page for website 
 @app.route('/')
@@ -19,9 +21,13 @@ def index():
 def form():
     return render_template('form.html')
 
-@app.route('/ML_transform')
+#this function will handle the translation from english string to french string via google
+#translate ML_API
+@app.route('/ML_transform', methods = ['POST'])
 def ML_transform():
-    return "ok"
+    model.insert(request.form['string'])
+    model.fr_string = translate_text(target1, model.en_string)
+    return render_template('done.html', model = model)
 
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0', port = 4996, debug = True)
+    app.run(host = '0.0.0.0', port = 4997, debug = True)
