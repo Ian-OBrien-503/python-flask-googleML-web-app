@@ -7,7 +7,12 @@ class model():
     def __init__(self):
         self.en_string = ""
         self.fr_string = ""
+        pass
 
-    def insert(self, string):
+    def insert_en(self, string):
         self.en_string = string
+        pass
+
+    def insert_fr(self, string):
+        self.fr_string = string
         pass

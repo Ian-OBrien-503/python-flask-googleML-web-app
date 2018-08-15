@@ -22,7 +22,6 @@ https://cloud.google.com/translate/docs.
 """
 
 import argparse
-
 from google.cloud import translate
 import six
 
@@ -113,10 +112,12 @@ def translate_text(target, text):
     result = translate_client.translate(
         text, target_language=target)
 
+    """commenting out prints to make it work, only worried about website functioalty, not co    nsole"""
     print(u'Text: {}'.format(result['input']))
     print(u'Translation: {}'.format(result['translatedText']))
-    print(u'Detected source language: {}'.format(
-        result['detectedSourceLanguage']))
+    print(u'Detected source language: {}'.format(result['detectedSourceLanguage']))
+    payload = result['translatedText']
+    return payload
     # [END translate_translate_text]
 
 
