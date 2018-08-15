@@ -116,6 +116,7 @@ def translate_text(target, text):
     print(u'Text: {}'.format(result['input']))
     print(u'Translation: {}'.format(result['translatedText']))
     print(u'Detected source language: {}'.format(result['detectedSourceLanguage']))
+    #edited original code from snippets.py to make it so i can return payload and print it
     payload = result['translatedText']
     return payload
     # [END translate_translate_text]
